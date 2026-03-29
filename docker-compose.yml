@@ -4,7 +4,7 @@ services:
   nginx:
     build:
       context: ./nginx
-    container_name: nginx
+    container_name: "nginx_cont"
     ports:
       - "80:80"
     networks:
@@ -13,8 +13,8 @@ services:
     depends_on:
       - django
 
-  mysql:
-    container_name: mysql
+  db:
+    container_name: "db_cont"
     image: mysql
     ports:
       - "3306:3306"
@@ -34,7 +34,7 @@ services:
       start_period: 60s
 
   django:
-    container_name: django_cont
+    container_name: "django_cont"
     build:
       context: .
     command: sh -c "python manage.py migrate --no-input && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
@@ -46,7 +46,7 @@ services:
       - notes-app
     restart: always
     depends_on:
-      - mysql
+      - db
 
 volumes:
   mysql-data:
