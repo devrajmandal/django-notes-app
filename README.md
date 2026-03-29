@@ -40,7 +40,7 @@ cd django-notes-app
 
 ### 2. Build and run all containers
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 This starts three containers:
