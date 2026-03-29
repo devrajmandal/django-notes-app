@@ -59,12 +59,21 @@ Open `http://<your-ec2-ip>/` in your browser
 
 ## Project Structure
 ```
-├── Dockerfile
-├── docker-compose.yml
-├── nginx/
+├── api/                  # REST API views and urls
+├── mynotes/              # Django app (models, logic)
+├── nginx/                # Nginx config
 │   └── default.conf
-├── mynotes/          # Django app
-└── requirements.txt
+├── notesapp/             # Django project settings
+├── staticfiles/          # Collected static files
+├── .env                  # Environment variables
+├── .gitignore
+├── Dockerfile
+├── Jenkinsfile           # CI/CD pipeline
+├── Procfile
+├── docker-compose.yml
+├── manage.py
+├── requirements.txt
+└── db.sqlite3
 ```
 
 ---
